@@ -1,0 +1,1223 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetic Link -- First Check Your Parcel, Then Pay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: {
+                            50: '#FDF2F4',
+                            100: '#FCE7EB',
+                            200: '#F9D0D9',
+                            300: '#F4A9BA',
+                            400: '#EC7A96',
+                            500: '#D4838F',
+                            600: '#C26B7A',
+                            700: '#A35465',
+                            800: '#8A4756',
+                            900: '#733D4B',
+                        },
+                        forest: {
+                            50: '#F0F7EF',
+                            100: '#DCF0D8',
+                            200: '#B8E0B0',
+                            300: '#84C878',
+                            400: '#52A844',
+                            500: '#3B7A35',
+                            600: '#2D5A27',
+                            700: '#244A20',
+                            800: '#1E3D1B',
+                            900: '#1A3318',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-fade-in-up-delay-1 { animation: fadeInUp 0.8s ease-out 0.15s forwards; opacity: 0; }
+        .animate-fade-in-up-delay-2 { animation: fadeInUp 0.8s ease-out 0.3s forwards; opacity: 0; }
+        .animate-fade-in-up-delay-3 { animation: fadeInUp 0.8s ease-out 0.45s forwards; opacity: 0; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pulse-ring { animation: pulse-ring 1.5s ease-out infinite; }
+        .shimmer-text {
+            background: linear-gradient(90deg, #C26B7A 0%, #E8A0BF 25%, #FFFFFF 50%, #E8A0BF 75%, #C26B7A 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+        .product-card:hover .product-img { transform: scale(1.08); }
+        .product-card:hover .quick-add { opacity: 1; transform: translateY(0); }
+        .category-card:hover .cat-img { transform: scale(1.1); }
+        .category-card:hover .cat-overlay { background: rgba(0,0,0,0.25); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDF2F4; }
+        ::-webkit-scrollbar-thumb { background: #EC7A96; border-radius: 3px; }
+        ::selection { background: #F9D0D9; color: #733D4B; }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-800 antialiased">
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-xl border-b border-rose-100/60">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-forest-500 to-forest-700 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
+                        <span class="iconify text-white text-lg md:text-xl" data-icon="lucide:sparkles"></span>
+                    </div>
+                    <div class="leading-tight">
+                        <span class="block text-base md:text-lg font-serif font-semibold text-forest-800 tracking-tight">Cosmetic Link</span>
+                        <span class="block text-[9px] md:text-[10px] text-forest-500 font-medium tracking-widest uppercase">Beauty & Trust</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-sm font-medium text-gray-600 hover:text-forest-700 transition-colors relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-forest-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#shop" class="text-sm font-medium text-gray-600 hover:text-forest-700 transition-colors relative group">
+                        Shop
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-forest-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#about" class="text-sm font-medium text-gray-600 hover:text-forest-700 transition-colors relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-forest-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-forest-700 transition-colors relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-forest-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-3">
+                    <button id="cartBtn" class="relative p-2 rounded-full hover:bg-rose-50 transition-colors">
+                        <span class="iconify text-xl text-gray-700" data-icon="lucide:shopping-bag"></span>
+                        <span id="cartCount" class="absolute -top-0.5 -right-0.5 w-5 h-5 bg-rose-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+                    </button>
+                    <a href="https://wa.me/923315190623" target="_blank" class="hidden md:flex items-center gap-1.5 px-4 py-2 bg-forest-600 hover:bg-forest-700 text-white text-sm font-medium rounded-full transition-colors shadow-sm">
+                        <span class="iconify text-base" data-icon="lucide:message-circle"></span>
+                        WhatsApp
+                    </a>
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-full hover:bg-rose-50 transition-colors">
+                        <span class="iconify text-xl text-gray-700" data-icon="lucide:menu" id="menuIcon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-rose-100/60 shadow-lg">
+            <div class="px-6 py-5 space-y-1">
+                <a href="#home" class="mobile-link block py-3 px-4 text-gray-700 hover:bg-rose-50 hover:text-forest-700 rounded-xl transition-colors font-medium">Home</a>
+                <a href="#shop" class="mobile-link block py-3 px-4 text-gray-700 hover:bg-rose-50 hover:text-forest-700 rounded-xl transition-colors font-medium">Shop</a>
+                <a href="#about" class="mobile-link block py-3 px-4 text-gray-700 hover:bg-rose-50 hover:text-forest-700 rounded-xl transition-colors font-medium">About Us</a>
+                <a href="#contact" class="mobile-link block py-3 px-4 text-gray-700 hover:bg-rose-50 hover:text-forest-700 rounded-xl transition-colors font-medium">Contact</a>
+                <div class="pt-3">
+                    <a href="https://wa.me/923315190623" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-forest-600 text-white font-medium rounded-xl">
+                        <span class="iconify text-lg" data-icon="lucide:message-circle"></span>
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-rose-50 via-white to-forest-50">
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-rose-200/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-forest-200/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/3 left-1/4 w-4 h-4 bg-rose-300 rounded-full animate-float opacity-60"></div>
+        <div class="absolute top-1/2 right-1/3 w-3 h-3 bg-forest-300 rounded-full animate-float opacity-60" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-1/3 left-1/3 w-2 h-2 bg-rose-400 rounded-full animate-float opacity-40" style="animation-delay: 0.5s;"></div>
+
+        <div class="max-w-7xl mx-auto px-5 md:px-8 pt-28 pb-16 md:pt-32 md:pb-24 w-full">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <!-- Left Content -->
+                <div class="space-y-7 text-center lg:text-left">
+                    <div class="animate-fade-in-up">
+                        <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-rose-100/80 text-rose-700 text-xs font-semibold tracking-wider uppercase rounded-full border border-rose-200/60">
+                            <span class="w-2 h-2 bg-rose-500 rounded-full animate-pulse"></span>
+                            2026 Mega Sale -- Live Now
+                        </span>
+                    </div>
+
+                    <h1 class="animate-fade-in-up-delay-1 font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.08] tracking-tight">
+                        Your Beauty,
+                        <span class="block shimmer-text">Our Promise</span>
+                    </h1>
+
+                    <p class="animate-fade-in-up-delay-2 text-gray-600 text-base md:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        Up to <strong class="text-forest-700">20% off</strong> on authentic makeup & skincare. Nationwide COD with our exclusive
+                        <em class="text-rose-600 font-medium">"First Check, Then Pay"</em> policy.
+                    </p>
+
+                    <div class="animate-fade-in-up-delay-3 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                        <a href="#shop" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-forest-600 hover:bg-forest-700 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-forest-600/25 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5">
+                            Shop the Sale
+                            <span class="iconify text-lg" data-icon="lucide:arrow-right"></span>
+                        </a>
+                        <a href="#about" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-rose-50 text-forest-700 font-semibold rounded-full transition-all duration-300 border-2 border-forest-200 hover:border-forest-300">
+                            Learn More
+                        </a>
+                    </div>
+
+                    <!-- Mini Stats -->
+                    <div class="animate-fade-in-up-delay-3 flex items-center gap-6 justify-center lg:justify-start pt-2">
+                        <div class="text-center">
+                            <span class="block text-xl md:text-2xl font-bold text-forest-700">10K+</span>
+                            <span class="text-xs text-gray-500">Happy Customers</span>
+                        </div>
+                        <div class="w-px h-10 bg-rose-200"></div>
+                        <div class="text-center">
+                            <span class="block text-xl md:text-2xl font-bold text-forest-700">500+</span>
+                            <span class="text-xs text-gray-500">Products</span>
+                        </div>
+                        <div class="w-px h-10 bg-rose-200"></div>
+                        <div class="text-center">
+                            <span class="block text-xl md:text-2xl font-bold text-forest-700">100%</span>
+                            <span class="text-xs text-gray-500">Authentic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Image Collage -->
+                <div class="relative hidden lg:flex justify-center items-center">
+                    <div class="relative w-[480px] h-[560px]">
+                        <!-- Main Image -->
+                        <div class="absolute top-0 right-0 w-[320px] h-[400px] rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 z-10">
+                            <img src="https://picsum.photos/seed/cosmetic-makeup1/640/800.jpg" alt="Makeup Collection" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <!-- Secondary Image -->
+                        <div class="absolute bottom-0 left-0 w-[240px] h-[300px] rounded-3xl overflow-hidden shadow-xl -rotate-3 hover:rotate-0 transition-transform duration-500 z-20">
+                            <img src="https://picsum.photos/seed/skincare-products/480/600.jpg" alt="Skincare Products" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <!-- Badge -->
+                        <div class="absolute top-16 -left-4 z-30 bg-white rounded-2xl shadow-lg p-3 animate-float">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center">
+                                    <span class="iconify text-rose-600 text-xl" data-icon="lucide:gift"></span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-bold text-gray-800">Free Gift</span>
+                                    <span class="block text-[10px] text-gray-500">With every order</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Rating Badge -->
+                        <div class="absolute bottom-24 right-0 z-30 bg-white rounded-2xl shadow-lg p-3 animate-float" style="animation-delay: 1s;">
+                            <div class="flex items-center gap-1.5">
+                                <div class="flex text-yellow-400 text-sm">
+                                    <span class="iconify" data-icon="lucide:star"></span>
+                                    <span class="iconify" data-icon="lucide:star"></span>
+                                    <span class="iconify" data-icon="lucide:star"></span>
+                                    <span class="iconify" data-icon="lucide:star"></span>
+                                    <span class="iconify" data-icon="lucide:star"></span>
+                                </div>
+                                <span class="text-xs font-bold text-gray-800">4.9/5</span>
+                            </div>
+                            <span class="text-[10px] text-gray-500">2000+ Reviews</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TRUST BAR ========== -->
+    <section class="relative bg-forest-700 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-5 md:px-8 py-6 md:py-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-0 md:divide-x divide-forest-600">
+                <div class="flex items-center justify-center gap-3 py-2 md:py-0 md:px-8">
+                    <div class="w-11 h-11 rounded-full bg-forest-600 flex items-center justify-center flex-shrink-0">
+                        <span class="iconify text-xl text-forest-200" data-icon="lucide:banknote"></span>
+                    </div>
+                    <div>
+                        <span class="block text-sm font-semibold text-white">Cash on Delivery</span>
+                        <span class="block text-xs text-forest-300">Nationwide across Pakistan</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-3 py-2 md:py-0 md:px-8">
+                    <div class="w-11 h-11 rounded-full bg-forest-600 flex items-center justify-center flex-shrink-0">
+                        <span class="iconify text-xl text-forest-200" data-icon="lucide:package-open"></span>
+                    </div>
+                    <div>
+                        <span class="block text-sm font-semibold text-white">Open Parcel Policy</span>
+                        <span class="block text-xs text-forest-300">First check, then pay</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-3 py-2 md:py-0 md:px-8">
+                    <div class="w-11 h-11 rounded-full bg-forest-600 flex items-center justify-center flex-shrink-0">
+                        <span class="iconify text-xl text-forest-200" data-icon="lucide:refresh-cw"></span>
+                    </div>
+                    <div>
+                        <span class="block text-sm font-semibold text-white">Easy Returns</span>
+                        <span class="block text-xs text-forest-300">100% quality exchange</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SHOP / COLLECTIONS ========== -->
+    <section id="shop" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-14">
+                <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-forest-600 mb-3">Collections</span>
+                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">Shop by Category</h2>
+                <p class="mt-4 text-gray-500 max-w-md mx-auto">Explore our curated collections of authentic beauty products</p>
+            </div>
+
+            <!-- Category Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-7 mb-20">
+                <!-- Makeup -->
+                <div class="category-card group relative h-72 md:h-96 rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="https://picsum.photos/seed/makeup-palette/600/800.jpg" alt="Makeup" class="cat-img w-full h-full object-cover transition-transform duration-700">
+                    <div class="cat-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                        <h3 class="font-serif text-2xl md:text-3xl font-bold text-white mb-1">Makeup</h3>
+                        <p class="text-white/70 text-sm mb-4">Foundations, lipsticks, palettes & more</p>
+                        <span class="inline-flex items-center gap-1.5 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                            Explore
+                            <span class="iconify" data-icon="lucide:arrow-right"></span>
+                        </span>
+                    </div>
+                </div>
+                <!-- Skincare -->
+                <div class="category-card group relative h-72 md:h-96 rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="https://picsum.photos/seed/skincare-jars/600/800.jpg" alt="Skincare" class="cat-img w-full h-full object-cover transition-transform duration-700">
+                    <div class="cat-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                        <h3 class="font-serif text-2xl md:text-3xl font-bold text-white mb-1">Skincare</h3>
+                        <p class="text-white/70 text-sm mb-4">Cleansers, serums, moisturizers & masks</p>
+                        <span class="inline-flex items-center gap-1.5 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                            Explore
+                            <span class="iconify" data-icon="lucide:arrow-right"></span>
+                        </span>
+                    </div>
+                </div>
+                <!-- Beauty Tools -->
+                <div class="category-card group relative h-72 md:h-96 rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="https://picsum.photos/seed/beauty-tools-brush/600/800.jpg" alt="Beauty Tools" class="cat-img w-full h-full object-cover transition-transform duration-700">
+                    <div class="cat-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                        <h3 class="font-serif text-2xl md:text-3xl font-bold text-white mb-1">Beauty Tools</h3>
+                        <p class="text-white/70 text-sm mb-4">Brushes, sponges, tools & accessories</p>
+                        <span class="inline-flex items-center gap-1.5 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                            Explore
+                            <span class="iconify" data-icon="lucide:arrow-right"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Products -->
+            <div class="text-center mb-10">
+                <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-rose-600 mb-3">Bestsellers</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Featured Products</h2>
+            </div>
+
+            <!-- Product Filter Tabs -->
+            <div class="flex justify-center gap-2 mb-10 flex-wrap">
+                <button class="product-filter active px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 bg-forest-600 text-white shadow-sm" data-filter="all">All</button>
+                <button class="product-filter px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-rose-100 hover:text-rose-700" data-filter="makeup">Makeup</button>
+                <button class="product-filter px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-rose-100 hover:text-rose-700" data-filter="skincare">Skincare</button>
+                <button class="product-filter px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-rose-100 hover:text-rose-700" data-filter="tools">Tools</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Product 1 -->
+                <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500" data-category="makeup">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-rose-50">
+                        <img src="https://picsum.photos/seed/lipstick-red/400/530.jpg" alt="Matte Lipstick" class="product-img w-full h-full object-cover transition-transform duration-700">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-rose-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full">20% Off</span>
+                        <button class="quick-add absolute bottom-3 left-3 right-3 py-2.5 bg-forest-600 hover:bg-forest-700 text-white text-sm font-semibold rounded-xl opacity-0 translate-y-2 transition-all duration-300 add-to-cart-btn" data-name="Velvet Matte Lipstick" data-price="799">
+                            Add to Bag
+                        </button>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <span class="text-[10px] font-semibold text-forest-600 uppercase tracking-wider">Makeup</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-0.5 leading-snug">Velvet Matte Lipstick</h4>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="text-base font-bold text-forest-700">Rs. 799</span>
+                            <span class="text-xs text-gray-400 line-through">Rs. 999</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500" data-category="skincare">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-rose-50">
+                        <img src="https://picsum.photos/seed/vitamin-c-serum/400/530.jpg" alt="Vitamin C Serum" class="product-img w-full h-full object-cover transition-transform duration-700">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-forest-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full">Bestseller</span>
+                        <button class="quick-add absolute bottom-3 left-3 right-3 py-2.5 bg-forest-600 hover:bg-forest-700 text-white text-sm font-semibold rounded-xl opacity-0 translate-y-2 transition-all duration-300 add-to-cart-btn" data-name="Vitamin C Glow Serum" data-price="1499">
+                            Add to Bag
+                        </button>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <span class="text-[10px] font-semibold text-forest-600 uppercase tracking-wider">Skincare</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-0.5 leading-snug">Vitamin C Glow Serum</h4>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="text-base font-bold text-forest-700">Rs. 1,499</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500" data-category="makeup">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-rose-50">
+                        <img src="https://picsum.photos/seed/foundation-bottle/400/530.jpg" alt="HD Foundation" class="product-img w-full h-full object-cover transition-transform duration-700">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-rose-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full">20% Off</span>
+                        <button class="quick-add absolute bottom-3 left-3 right-3 py-2.5 bg-forest-600 hover:bg-forest-700 text-white text-sm font-semibold rounded-xl opacity-0 translate-y-2 transition-all duration-300 add-to-cart-btn" data-name="HD Liquid Foundation" data-price="1299">
+                            Add to Bag
+                        </button>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <span class="text-[10px] font-semibold text-forest-600 uppercase tracking-wider">Makeup</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-0.5 leading-snug">HD Liquid Foundation</h4>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="text-base font-bold text-forest-700">Rs. 1,299</span>
+                            <span class="text-xs text-gray-400 line-through">Rs. 1,599</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500" data-category="tools">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-rose-50">
+                        <img src="https://picsum.photos/seed/makeup-brush-set/400/530.jpg" alt="Brush Set" class="product-img w-full h-full object-cover transition-transform duration-700">
+                        <button class="quick-add absolute bottom-3 left-3 right-3 py-2.5 bg-forest-600 hover:bg-forest-700 text-white text-sm font-semibold rounded-xl opacity-0 translate-y-2 transition-all duration-300 add-to-cart-btn" data-name="Pro Brush Set (12pcs)" data-price="1899">
+                            Add to Bag
+                        </button>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <span class="text-[10px] font-semibold text-forest-600 uppercase tracking-wider">Tools</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-0.5 leading-snug">Pro Brush Set (12pcs)</h4>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="text-base font-bold text-forest-700">Rs. 1,899</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500" data-category="skincare">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-rose-50">
+                        <img src="https://picsum.photos/seed/moisturizer-cream/400/530.jpg" alt="Moisturizer" class="product-img w-full h-full object-cover transition-transform duration-700">
+                        <button class="quick-add absolute bottom-3 left-3 right-3 py-2.5 bg-forest-600 hover:bg-forest-700 text-white text-sm font-semibold rounded-xl opacity-0 translate-y-2 transition-all duration-300 add-to-cart-btn" data-name="Hydra Glow Moisturizer" data-price="899">
+                            Add to Bag
+                        </button>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <span class="text-[10px] font-semibold text-forest-600 uppercase tracking-wider">Skincare</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-0.5 leading-snug">Hydra Glow Moisturizer</h4>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="text-base font-bold text-forest-700">Rs. 899</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500" data-category="makeup">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-rose-50">
+                        <img src="https://picsum.photos/seed/eyeshadow-palette/400/530.jpg" alt="Eyeshadow Palette" class="product-img w-full h-full object-cover transition-transform duration-700">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-rose-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full">20% Off</span>
+                        <button class="quick-add absolute bottom-3 left-3 right-3 py-2.5 bg-forest-600 hover:bg-forest-700 text-white text-sm font-semibold rounded-xl opacity-0 translate-y-2 transition-all duration-300 add-to-cart-btn" data-name="18-Shade Eyeshadow Palette" data-price="1599">
+                            Add to Bag
+                        </button>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <span class="text-[10px] font-semibold text-forest-600 uppercase tracking-wider">Makeup</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-0.5 leading-snug">18-Shade Eyeshadow Palette</h4>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="text-base font-bold text-forest-700">Rs. 1,599</span>
+                            <span class="text-xs text-gray-400 line-through">Rs. 1,999</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500" data-category="skincare">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-rose-50">
+                        <img src="https://picsum.photos/seed/sunscreen-spf/400/530.jpg" alt="Sunscreen" class="product-img w-full h-full object-cover transition-transform duration-700">
+                        <button class="quick-add absolute bottom-3 left-3 right-3 py-2.5 bg-forest-600 hover:bg-forest-700 text-white text-sm font-semibold rounded-xl opacity-0 translate-y-2 transition-all duration-300 add-to-cart-btn" data-name="SPF 50+ Sunscreen" data-price="699">
+                            Add to Bag
+                        </button>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <span class="text-[10px] font-semibold text-forest-600 uppercase tracking-wider">Skincare</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-0.5 leading-snug">SPF 50+ Sunscreen</h4>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="text-base font-bold text-forest-700">Rs. 699</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500" data-category="tools">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-rose-50">
+                        <img src="https://picsum.photos/seed/beauty-blender-sponge/400/530.jpg" alt="Beauty Sponge" class="product-img w-full h-full object-cover transition-transform duration-700">
+                        <button class="quick-add absolute bottom-3 left-3 right-3 py-2.5 bg-forest-600 hover:bg-forest-700 text-white text-sm font-semibold rounded-xl opacity-0 translate-y-2 transition-all duration-300 add-to-cart-btn" data-name="Beauty Blender Sponge" data-price="349">
+                            Add to Bag
+                        </button>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <span class="text-[10px] font-semibold text-forest-600 uppercase tracking-wider">Tools</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-0.5 leading-snug">Beauty Blender Sponge</h4>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="text-base font-bold text-forest-700">Rs. 349</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROMOTIONAL BANNER ========== -->
+    <section class="relative py-20 md:py-28 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://picsum.photos/seed/beauty-flat-lay/1600/600.jpg" alt="Beauty Banner" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-forest-900/90 via-forest-800/80 to-rose-900/70"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-5 md:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md text-white/90 text-xs font-semibold tracking-wider uppercase rounded-full border border-white/20 mb-6">
+                <span class="iconify text-rose-300" data-icon="lucide:gift"></span>
+                Limited Time Offer
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+                Surprise Gift with<br>Every Single Order
+            </h2>
+            <p class="text-white/70 text-base md:text-lg max-w-xl mx-auto mb-8">
+                We believe in making every unboxing special. That's why every parcel includes a guaranteed surprise beauty gift -- no minimum order required.
+            </p>
+            <a href="#shop" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-forest-800 font-semibold rounded-full hover:bg-rose-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                Shop Now & Get Your Gift
+                <span class="iconify" data-icon="lucide:arrow-right"></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT US ========== -->
+    <section id="about" class="py-20 md:py-28 bg-gradient-to-b from-rose-50/50 to-white">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Image Side -->
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden shadow-xl">
+                        <img src="https://picsum.photos/seed/beauty-store-interior/700/500.jpg" alt="About Cosmetic Link" class="w-full h-[350px] md:h-[450px] object-cover">
+                    </div>
+                    <!-- Floating Card -->
+                    <div class="absolute -bottom-6 -right-4 md:-right-8 bg-white rounded-2xl shadow-xl p-5 border border-rose-100 max-w-[220px]">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-forest-100 flex items-center justify-center">
+                                <span class="iconify text-forest-600 text-lg" data-icon="lucide:shield-check"></span>
+                            </div>
+                            <span class="text-sm font-bold text-gray-800">Trusted Since</span>
+                        </div>
+                        <span class="block text-3xl font-serif font-bold text-forest-700">2023</span>
+                        <span class="text-xs text-gray-500">Serving Pakistan with love</span>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="space-y-6">
+                    <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-rose-600">About Us</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
+                        Pakistan's Most Trusted<br>
+                        <span class="text-forest-700">Online Beauty Store</span>
+                    </h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            Established in <strong class="text-gray-800">2023</strong>, Cosmetic Link was born from a simple belief: every Pakistani deserves access to authentic beauty products without the risk.
+                        </p>
+                        <p>
+                            We saw how online shopping for cosmetics in Pakistan was filled with uncertainty -- counterfeit products, no return policies, and the fear of paying for something you haven't seen. That's why we introduced our revolutionary
+                            <em class="text-rose-600 font-medium">"First Check Your Parcel, Then Pay"</em> policy.
+                        </p>
+                        <p>
+                            Based in <strong class="text-gray-800">Islamabad</strong>, we deliver nationwide with Cash on Delivery, ensuring a 100% risk-free shopping experience. Every order comes with a surprise gift because we believe beauty should always feel special.
+                        </p>
+                    </div>
+
+                    <!-- Values Grid -->
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 bg-white rounded-xl border border-rose-100 hover:border-forest-200 transition-colors">
+                            <span class="iconify text-2xl text-forest-600 mb-2" data-icon="lucide:badge-check"></span>
+                            <span class="block text-sm font-semibold text-gray-800">100% Authentic</span>
+                            <span class="block text-xs text-gray-500 mt-0.5">Guaranteed genuine products</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-rose-100 hover:border-forest-200 transition-colors">
+                            <span class="iconify text-2xl text-rose-500 mb-2" data-icon="lucide:heart-handshake"></span>
+                            <span class="block text-sm font-semibold text-gray-800">Customer First</span>
+                            <span class="block text-xs text-gray-500 mt-0.5">Your satisfaction, our priority</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-rose-100 hover:border-forest-200 transition-colors">
+                            <span class="iconify text-2xl text-forest-600 mb-2" data-icon="lucide:truck"></span>
+                            <span class="block text-sm font-semibold text-gray-800">Fast Delivery</span>
+                            <span class="block text-xs text-gray-500 mt-0.5">3-5 days nationwide</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-rose-100 hover:border-forest-200 transition-colors">
+                            <span class="iconify text-2xl text-rose-500 mb-2" data-icon="lucide:gift"></span>
+                            <span class="block text-sm font-semibold text-gray-800">Free Gifts</span>
+                            <span class="block text-xs text-gray-500 mt-0.5">With every single order</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-14">
+                <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-forest-600 mb-3">Simple Process</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">How It Works</h2>
+                <p class="mt-4 text-gray-500 max-w-md mx-auto">Shopping with Cosmetic Link is as easy as 1-2-3</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
+                <!-- Connector Line (Desktop) -->
+                <div class="hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-rose-200 via-forest-200 to-rose-200"></div>
+
+                <div class="text-center relative">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-rose-400 to-rose-600 text-white text-xl font-bold flex items-center justify-center mx-auto mb-5 shadow-lg shadow-rose-200 relative z-10">1</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Browse & Select</h4>
+                    <p class="text-sm text-gray-500">Explore our collection and add products to your bag</p>
+                </div>
+                <div class="text-center relative">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-forest-400 to-forest-600 text-white text-xl font-bold flex items-center justify-center mx-auto mb-5 shadow-lg shadow-forest-200 relative z-10">2</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Place Order via WhatsApp</h4>
+                    <p class="text-sm text-gray-500">Confirm your order with our team on WhatsApp</p>
+                </div>
+                <div class="text-center relative">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-rose-400 to-rose-600 text-white text-xl font-bold flex items-center justify-center mx-auto mb-5 shadow-lg shadow-rose-200 relative z-10">3</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Receive & Check</h4>
+                    <p class="text-sm text-gray-500">Open your parcel, verify products before paying</p>
+                </div>
+                <div class="text-center relative">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-forest-400 to-forest-600 text-white text-xl font-bold flex items-center justify-center mx-auto mb-5 shadow-lg shadow-forest-200 relative z-10">4</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Pay & Enjoy</h4>
+                    <p class="text-sm text-gray-500">Pay via COD + enjoy your surprise free gift!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section class="py-20 md:py-28 bg-rose-50/50">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-14">
+                <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-rose-600 mb-3">Testimonials</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">What Our Customers Say</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-rose-100 hover:shadow-lg transition-shadow duration-300">
+                    <div class="flex text-yellow-400 text-sm mb-4">
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">"I was so scared to order makeup online, but Cosmetic Link's 'check first then pay' policy gave me so much confidence. The products were 100% original! And the free gift was such a lovely surprise."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-300 to-rose-500 flex items-center justify-center text-white font-bold text-sm">A</div>
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-800">Ayesha Khan</span>
+                            <span class="block text-xs text-gray-500">Lahore, Pakistan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-rose-100 hover:shadow-lg transition-shadow duration-300">
+                    <div class="flex text-yellow-400 text-sm mb-4">
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">"Best skincare products I've found in Pakistan! The Vitamin C serum actually works. Delivery was fast and the team was super responsive on WhatsApp. Highly recommend!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-forest-300 to-forest-500 flex items-center justify-center text-white font-bold text-sm">F</div>
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-800">Fatima Noor</span>
+                            <span class="block text-xs text-gray-500">Karachi, Pakistan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-rose-100 hover:shadow-lg transition-shadow duration-300">
+                    <div class="flex text-yellow-400 text-sm mb-4">
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                        <span class="iconify" data-icon="lucide:star"></span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">"Ordered the brush set and I'm amazed at the quality for this price. The open parcel policy is a game changer -- no more worrying about fake products. Will order again!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-300 to-forest-500 flex items-center justify-center text-white font-bold text-sm">S</div>
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-800">Sana Mir</span>
+                            <span class="block text-xs text-gray-500">Islamabad, Pakistan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-14">
+                <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-forest-600 mb-3">Get in Touch</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Contact Us</h2>
+                <p class="mt-4 text-gray-500 max-w-md mx-auto">Have questions? We'd love to hear from you. Reach out anytime!</p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-8 md:gap-12">
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- WhatsApp Card -->
+                    <a href="https://wa.me/923315190623" target="_blank" class="flex items-start gap-4 p-5 bg-gradient-to-br from-forest-50 to-forest-100/50 rounded-2xl border border-forest-200 hover:border-forest-300 hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-forest-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <span class="iconify text-xl text-white" data-icon="lucide:message-circle"></span>
+                        </div>
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-800">WhatsApp</span>
+                            <span class="block text-sm text-forest-600 font-medium">+92 331 5190623</span>
+                            <span class="block text-xs text-gray-500 mt-1">Click to start chatting →</span>
+                        </div>
+                    </a>
+
+                    <!-- Phone Card -->
+                    <a href="tel:03100008328" class="flex items-start gap-4 p-5 bg-rose-50 rounded-2xl border border-rose-200 hover:border-rose-300 hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-rose-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <span class="iconify text-xl text-white" data-icon="lucide:phone"></span>
+                        </div>
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-800">Phone</span>
+                            <span class="block text-sm text-rose-600 font-medium">0310 0008328</span>
+                            <span class="block text-xs text-gray-500 mt-1">Mon-Sat, 10am - 9pm</span>
+                        </div>
+                    </a>
+
+                    <!-- Email Card -->
+                    <a href="mailto:cosmeticlink111@gmail.com" class="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-gray-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <span class="iconify text-xl text-white" data-icon="lucide:mail"></span>
+                        </div>
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-800">Email</span>
+                            <span class="block text-sm text-gray-600 font-medium break-all">cosmeticlink111@gmail.com</span>
+                            <span class="block text-xs text-gray-500 mt-1">We reply within 24 hours</span>
+                        </div>
+                    </a>
+
+                    <!-- Location Card -->
+                    <div class="flex items-start gap-4 p-5 bg-forest-50/50 rounded-2xl border border-forest-100">
+                        <div class="w-12 h-12 rounded-xl bg-forest-700 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-xl text-white" data-icon="lucide:map-pin"></span>
+                        </div>
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-800">Location</span>
+                            <span class="block text-sm text-gray-600 font-medium">Islamabad, Pakistan</span>
+                            <span class="block text-xs text-gray-500 mt-1">Delivering nationwide via COD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-3">
+                    <form id="contactForm" class="bg-gray-50 rounded-2xl p-6 md:p-10 border border-gray-100">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition-all text-sm bg-white">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="03XX XXXXXXX" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition-all text-sm bg-white">
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition-all text-sm bg-white">
+                        </div>
+                        <div class="mb-5">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1.5">Subject</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition-all text-sm bg-white text-gray-600">
+                                <option value="">Select a topic</option>
+                                <option value="order">Order Inquiry</option>
+                                <option value="product">Product Question</option>
+                                <option value="return">Return / Exchange</option>
+                                <option value="wholesale">Wholesale Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
+                            <textarea id="message" name="message" required rows="4" placeholder="How can we help you?" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition-all text-sm bg-white resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-forest-600 hover:bg-forest-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-forest-600/25 hover:shadow-xl">
+                            <span class="iconify text-lg" data-icon="lucide:send"></span>
+                            Send Message
+                        </button>
+                        <!-- Inline Success Message -->
+                        <div id="formSuccess" class="hidden mt-4 p-4 bg-forest-50 border border-forest-200 rounded-xl">
+                            <div class="flex items-center gap-2">
+                                <span class="iconify text-forest-600 text-lg" data-icon="lucide:check-circle"></span>
+                                <span class="text-sm font-medium text-forest-800">Thank you! Your message has been sent successfully. We'll get back to you soon.</span>
+                            </div>
+                        </div>
+                        <!-- Inline Error Message -->
+                        <div id="formError" class="hidden mt-4 p-4 bg-rose-50 border border-rose-200 rounded-xl">
+                            <div class="flex items-center gap-2">
+                                <span class="iconify text-rose-600 text-lg" data-icon="lucide:alert-circle"></span>
+                                <span class="text-sm font-medium text-rose-800">Please fill in all required fields correctly.</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NEWSLETTER ========== -->
+    <section class="py-16 bg-forest-700 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        <div class="relative max-w-3xl mx-auto px-5 md:px-8 text-center">
+            <span class="iconify text-4xl text-forest-300 mb-4 inline-block" data-icon="lucide:sparkles"></span>
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-3">Stay Beautiful, Stay Updated</h2>
+            <p class="text-forest-200 mb-8 text-sm md:text-base">Get exclusive offers, new arrivals & beauty tips straight to your WhatsApp.</p>
+            <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input type="tel" id="newsletterPhone" placeholder="Your WhatsApp number" required class="flex-1 px-5 py-3.5 rounded-xl border-0 outline-none text-sm bg-white/10 backdrop-blur-md text-white placeholder-forest-300 focus:ring-2 focus:ring-white/30">
+                <button type="submit" class="px-6 py-3.5 bg-rose-500 hover:bg-rose-600 text-white font-semibold rounded-xl transition-all duration-300 text-sm whitespace-nowrap shadow-lg">
+                    Subscribe
+                </button>
+            </form>
+            <div id="newsletterSuccess" class="hidden mt-3 text-forest-200 text-sm">
+                <span class="iconify inline-block align-middle mr-1" data-icon="lucide:check-circle"></span>
+                You're subscribed! We'll be in touch on WhatsApp.
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-gray-900 text-gray-400 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Brand Column -->
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-forest-500 to-forest-700 flex items-center justify-center">
+                            <span class="iconify text-white text-lg" data-icon="lucide:sparkles"></span>
+                        </div>
+                        <span class="text-lg font-serif font-semibold text-white">Cosmetic Link</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-4">
+                        Pakistan's most trusted online cosmetics store. First check your parcel, then pay -- that's our promise.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="https://wa.me/923315190623" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-forest-600 flex items-center justify-center transition-colors">
+                            <span class="iconify text-gray-400 hover:text-white" data-icon="lucide:message-circle"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-rose-600 flex items-center justify-center transition-colors">
+                            <span class="iconify text-gray-400 hover:text-white" data-icon="lucide:instagram"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors">
+                            <span class="iconify text-gray-400 hover:text-white" data-icon="lucide:facebook"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#home" class="text-sm hover:text-rose-400 transition-colors">Home</a></li>
+                        <li><a href="#shop" class="text-sm hover:text-rose-400 transition-colors">Shop All</a></li>
+                        <li><a href="#about" class="text-sm hover:text-rose-400 transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="text-sm hover:text-rose-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Categories</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#shop" class="text-sm hover:text-rose-400 transition-colors">Makeup</a></li>
+                        <li><a href="#shop" class="text-sm hover:text-rose-400 transition-colors">Skincare</a></li>
+                        <li><a href="#shop" class="text-sm hover:text-rose-400 transition-colors">Beauty Tools</a></li>
+                        <li><a href="#shop" class="text-sm hover:text-rose-400 transition-colors">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2.5">
+                            <span class="iconify text-rose-400 mt-0.5 flex-shrink-0" data-icon="lucide:phone"></span>
+                            <span class="text-sm">0310 0008328</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="iconify text-forest-400 mt-0.5 flex-shrink-0" data-icon="lucide:message-circle"></span>
+                            <span class="text-sm">+92 331 5190623</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="iconify text-gray-500 mt-0.5 flex-shrink-0" data-icon="lucide:mail"></span>
+                            <span class="text-sm break-all">cosmeticlink111@gmail.com</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="iconify text-gray-500 mt-0.5 flex-shrink-0" data-icon="lucide:map-pin"></span>
+                            <span class="text-sm">Islamabad, Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-gray-500">&copy; 2025 Cosmetic Link. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-xs text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-xs text-gray-500 hover:text-gray-300 transition-colors">Return Policy</a>
+                    <a href="#" class="text-xs text-gray-500 hover:text-gray-300 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING WHATSAPP BUTTON ========== -->
+    <a href="https://wa.me/923315190623?text=Hi%20Cosmetic%20Link!%20I'm%20interested%20in%20your%20products." target="_blank" id="whatsappFloat" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 transition-all duration-300 hover:scale-110 group">
+        <span class="absolute w-full h-full rounded-full bg-green-400 animate-pulse-ring"></span>
+        <span class="iconify text-white text-2xl relative z-10" data-icon="lucide:message-circle"></span>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-3 px-3 py-1.5 bg-gray-900 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            Chat with us!
+            <span class="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></span>
+        </span>
+    </a>
+
+    <!-- ========== CART DRAWER ========== -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black/40 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="cartDrawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white z-[70] shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="flex items-center justify-between p-5 border-b border-gray-100">
+            <h3 class="font-serif text-lg font-semibold text-gray-800">Your Bag</h3>
+            <button id="closeCart" class="w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors">
+                <span class="iconify text-xl text-gray-600" data-icon="lucide:x"></span>
+            </button>
+        </div>
+        <div id="cartItems" class="flex-1 overflow-y-auto p-5">
+            <div id="emptyCart" class="flex flex-col items-center justify-center h-full text-center">
+                <span class="iconify text-5xl text-gray-200 mb-3" data-icon="lucide:shopping-bag"></span>
+                <p class="text-gray-400 text-sm">Your bag is empty</p>
+                <a href="#shop" id="startShoppingBtn" class="mt-4 text-sm font-semibold text-forest-600 hover:text-forest-700 transition-colors">Start Shopping →</a>
+            </div>
+            <div id="cartItemsList" class="space-y-4 hidden"></div>
+        </div>
+        <div id="cartFooter" class="hidden border-t border-gray-100 p-5 space-y-4">
+            <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-600">Subtotal</span>
+                <span id="cartTotal" class="text-lg font-bold text-gray-800">Rs. 0</span>
+            </div>
+            <p class="text-xs text-gray-500">COD available nationwide. Free gift included!</p>
+            <a id="checkoutBtn" href="#" target="_blank" class="block w-full py-3.5 bg-forest-600 hover:bg-forest-700 text-white font-semibold text-center rounded-xl transition-colors shadow-lg shadow-forest-600/25">
+                Order via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- ========== TOAST NOTIFICATION ========== -->
+    <div id="toast" class="fixed top-24 right-6 z-[80] transform translate-x-[120%] transition-transform duration-300">
+        <div class="bg-white rounded-xl shadow-xl border border-gray-100 px-5 py-3.5 flex items-center gap-3 max-w-xs">
+            <div class="w-8 h-8 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+                <span class="iconify text-forest-600 text-sm" data-icon="lucide:check"></span>
+            </div>
+            <span id="toastMessage" class="text-sm font-medium text-gray-800">Item added to bag!</span>
+        </div>
+    </div>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // ===== MOBILE MENU =====
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.setAttribute('data-icon', menuOpen ? 'lucide:x' : 'lucide:menu');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuOpen = false;
+                menuIcon.setAttribute('data-icon', 'lucide:menu');
+            });
+        });
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-sm');
+            }
+        });
+
+        // ===== PRODUCT FILTER =====
+        const filterBtns = document.querySelectorAll('.product-filter');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-forest-600', 'text-white', 'shadow-sm');
+                    b.classList.add('bg-gray-100', 'text-gray-600');
+                });
+                btn.classList.remove('bg-gray-100', 'text-gray-600');
+                btn.classList.add('bg-forest-600', 'text-white', 'shadow-sm');
+
+                const filter = btn.dataset.filter;
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = '';
+                        card.style.animation = 'fadeInUp 0.5s ease-out forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // ===== CART FUNCTIONALITY =====
+        let cart = [];
+        const cartCountEl = document.getElementById('cartCount');
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const closeCartBtn = document.getElementById('closeCart');
+        const cartItemsList = document.getElementById('cartItemsList');
+        const emptyCart = document.getElementById('emptyCart');
+        const cartFooter = document.getElementById('cartFooter');
+        const cartTotalEl = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const startShoppingBtn = document.getElementById('startShoppingBtn');
+
+        function updateCartUI() {
+            cartCountEl.textContent = cart.length;
+
+            if (cart.length === 0) {
+                emptyCart.classList.remove('hidden');
+                cartItemsList.classList.add('hidden');
+                cartFooter.classList.add('hidden');
+            } else {
+                emptyCart.classList.add('hidden');
+                cartItemsList.classList.remove('hidden');
+                cartFooter.classList.remove('hidden');
+
+                cartItemsList.innerHTML = cart.map((item, idx) => `
+                    <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-xl">
+                        <div class="w-16 h-16 rounded-lg bg-rose-100 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-2xl text-rose-400" data-icon="lucide:package"></span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-semibold text-gray-800 truncate">${item.name}</h4>
+                            <span class="text-sm font-bold text-forest-700">Rs. ${item.price.toLocaleString()}</span>
+                        </div>
+                        <button onclick="removeFromCart(${idx})" class="w-8 h-8 rounded-full hover:bg-rose-100 flex items-center justify-center transition-colors flex-shrink-0">
+                            <span class="iconify text-gray-400 hover:text-rose-500" data-icon="lucide:trash-2"></span>
+                        </button>
+                    </div>
+                `).join('');
+
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                cartTotalEl.textContent = `Rs. ${total.toLocaleString()}`;
+
+                // Build WhatsApp checkout message
+                let msg = 'Hi Cosmetic Link! I\'d like to order:\n\n';
+                cart.forEach((item, idx) => {
+                    msg += `${idx + 1}. ${item.name} -- Rs. ${item.price.toLocaleString()}\n`;
+                });
+                msg += `\nTotal: Rs. ${total.toLocaleString()}`;
+                msg += '\n\nPlease confirm availability and delivery details. Thank you!';
+                checkoutBtn.href = `https://wa.me/923315190623?text=${encodeURIComponent(msg)}`;
+            }
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price: parseInt(price) });
+            updateCartUI();
+            showToast(`${name} added to bag!`);
+        }
+
+        function removeFromCart(index) {
+            const removed = cart.splice(index, 1);
+            updateCartUI();
+            showToast(`${removed[0].name} removed`);
+        }
+
+        // Add to Cart Buttons
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                addToCart(btn.dataset.name, btn.dataset.price);
+            });
+        });
+
+        // Cart Drawer Open/Close
+        document.getElementById('cartBtn').addEventListener('click', () => {
+            cartDrawer.classList.remove('translate-x-full');
+            cartOverlay.classList.remove('hidden');
+            setTimeout(() => cartOverlay.classList.remove('opacity-0'), 10);
+        });
+
+        function closeCartDrawer() {
+            cartDrawer.classList.add('translate-x-full');
+            cartOverlay.classList.add('opacity-0');
+            setTimeout(() => cartOverlay.classList.add('hidden'), 300);
+        }
+
+        closeCartBtn.addEventListener('click', closeCartDrawer);
+        cartOverlay.addEventListener('click', closeCartDrawer);
+        startShoppingBtn.addEventListener('click', closeCartDrawer);
+
+        // ===== TOAST NOTIFICATION =====
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+        let toastTimeout;
+
+        function showToast(message) {
+            clearTimeout(toastTimeout);
+            toastMessage.textContent = message;
+            toast.classList.remove('translate-x-[120%]');
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-x-[120%]');
+            }, 2500);
+        }
+
+        // ===== CONTACT FORM =====
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !phone || !message) {
+                formError.classList.remove('hidden');
+                return;
+            }
+
+            // Simulate form submission
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="iconify animate-spin text-lg" data-icon="lucide:loader-2"></span> Sending...';
+
+            setTimeout(() => {
+                formSuccess.classList.remove('hidden');
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span class="iconify text-lg" data-icon="lucide:send"></span> Send Message';
+
+                setTimeout(() => formSuccess.classList.add('hidden'), 5000);
+            }, 1500);
+        });
+
+        // ===== NEWSLETTER FORM =====
+        const newsletterForm = document.getElementById('newsletterForm');
+        const newsletterSuccess = document.getElementById('newsletterSuccess');
+
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const phone = document.getElementById('newsletterPhone').value.trim();
+            if (phone) {
+                newsletterSuccess.classList.remove('hidden');
+                newsletterForm.reset();
+                setTimeout(() => newsletterSuccess.classList.add('hidden'), 4000);
+            }
+        });
+
+        // ===== SCROLL ANIMATIONS (Intersection Observer) =====
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
+            observer.observe(el);
+        });
+
+        // Make the trust bar and nav always visible
+        navbar.style.opacity = '1';
+        navbar.style.transform = 'none';
+    </script>
+</body>
+</html>
